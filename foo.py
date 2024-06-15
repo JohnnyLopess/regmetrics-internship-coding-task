@@ -3,7 +3,9 @@ from unittest import TestCase
 
 
 def foo(x=0, y=[]):
-    y.append(x)
+    # y.append(x) Here are the bug, append doesnt work for this case
+    # print(y) Here are the debug print
+    y = y + [x] # This is the correct way to append the value
     return "Even" if len(y) % 2 == 0 else "Odd"
 
 
